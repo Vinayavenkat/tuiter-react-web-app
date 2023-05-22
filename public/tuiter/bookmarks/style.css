@@ -3,10 +3,12 @@ body {
     outline-offset: 16px;
 }
 .wd-flex-container {
+    width: 50%;
     border-width: 2px;
     border-color: rgb(47,51,54);
     border-style: solid;
-    margin-left: 16px;
+    margin-left: auto;
+    margin-right: auto;
     display:flex;
 }
 .wd-color {
