@@ -17,18 +17,23 @@ const NavigationSidebar = () => {
     { path: "more", label: "More", icon: faEllipsisH },
   ];
 
+  const linkItems = [];
+  links.forEach((link) => {
+    linkItems.push(
+      <Link
+        key={link.path}
+        to={`/tuiter/${link.path}`}
+        className={`list-group-item text-capitalize ${active === link.path ? "active" : ""}`}
+      >
+        <FontAwesomeIcon icon={link.icon} className="me-2" />
+        {link.label}
+      </Link>
+    );
+  });
+
   return (
     <div className="list-group">
-      {links.map((link) => (
-        <Link
-          key={link.path}
-          to={`/tuiter/${link.path}`}
-          className={`list-group-item text-capitalize ${active === link.path ? "active" : ""}`}
-        >
-          <FontAwesomeIcon icon={link.icon} className="me-2" />
-          {link.label}
-        </Link>
-      ))}
+      {linkItems}
       <p className="text-white fs-6">{ignore}</p>
       <p className="text-white fs-6">{tuiter}</p>
     </div>
