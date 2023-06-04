@@ -1,20 +1,10 @@
+import React, {useState} from "react";
 import {createTuit} from "./reducers/tuits-reducer";
 import {useDispatch} from "react-redux";
-import React, {useState} from "react";
-import {BsFiletypeGif} from  "react-icons/bs";
-import {BsFillImageFill} from  "react-icons/bs";
-import {BsBarChart} from  "react-icons/bs";
-import {BsEmojiSmile} from  "react-icons/bs";
-import {BsGeoAlt} from  "react-icons/bs";
-
-
-
-
-
+import {BsFillImageFill, BsFiletypeGif, BsBarChart, BsEmojiSmile, BsGeoAlt} from "react-icons/bs"
 const WhatsHappening = () => {
  let [whatsHappening, setWhatsHappening] = useState('');
  const dispatch = useDispatch();
-
  const tuitClickHandler = () => {
     const newTuit = {
         tuit: whatsHappening
@@ -25,7 +15,7 @@ const WhatsHappening = () => {
  return (
    <div className="row">
      <div className="col-auto">
-       <img src="/images/nasa.png" width={60} alt=""/>
+       <img alt = "imgn" src="/images/nasa.png" width={60}/>
      </div>
      <div className="col-10">
        <textarea value={whatsHappening} placeholder="What's happening?"
@@ -50,5 +40,4 @@ const WhatsHappening = () => {
    </div>
  );
 }
-
 export default WhatsHappening;
