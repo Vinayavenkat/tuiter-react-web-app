@@ -1,3 +1,5 @@
+import React from "react";
+
 function BooleanVariables({ numberVariable, floatingPointNumber }) {
     let true1 = true;
     let false1 = false;
