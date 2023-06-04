@@ -2,7 +2,7 @@ import React from "react";
 import { FaCheckCircle } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { BsDot } from "react-icons/bs";
-import TuitStats from "./TuitStats";
+import TuitStats from "./tuit-stats";
 import { useDispatch } from "react-redux";
 import { deleteTuit } from "../reducers/tuits-reducer";
 
