@@ -8,7 +8,8 @@ import { IoChatbubbleOutline, IoRepeat, IoHeart, IoHeartOutline, IoCloudUploadOu
 function TuitStats({ comments, retweets, likes, dislikes, liked, disliked }) {
   const [isLiked, setIsLiked] = useState(liked);
   const [likeCount, setLikeCount] = useState(likes);
-  const [dislikeCount, setDislikeCount] = useState(dislikes);
+  const [isDisliked, setIsDisliked] = useState(false);
+  const [dislikeCount, setDislikeCount] = useState(0);
   const dispatch = useDispatch();
 
   const handleLikeClick = () => {
@@ -22,15 +23,18 @@ function TuitStats({ comments, retweets, likes, dislikes, liked, disliked }) {
   };
 
   const handleDislikeClick = () => {
-    const newDislikeCount = dislikeCount + 1;
-    setDislikeCount(newDislikeCount);
-    dispatch(updateTuitThunk({ ...tuit, dislikes: newDislikeCount }));
+    dispatch(updateTuitThunk({ ...tuit, dislikes: tuit.dislikes + 1 }));
+    setDislikeCount((prevDislikeCount) => prevDislikeCount + 1);
   };
+  
+  
+  
+
 
   const LikeIcon = isLiked ? IoHeart : IoHeartOutline;
   const likeColor = isLiked ? "red" : "";
-  const DislikeIcon = disliked ? IoThumbsDown : IoThumbsDownOutline;
-  const dislikeColor = disliked ? "blue" : "";
+  const DislikeIcon = isDisliked ? IoThumbsDown : IoThumbsDownOutline;
+  const dislikeColor = isDisliked ? "blue" : "";
 
   return (
     <div className="row mt-2 text-secondary">
