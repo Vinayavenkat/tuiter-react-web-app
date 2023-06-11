@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome, faCompass, faBell, faEnvelope, faBookmark, faList, faUser, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
+import { faHome, faCompass, faBell, faEnvelope, faBookmark, faList, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { BiLogIn } from "react-icons/bi";
 import {FiUserPlus} from "react-icons/fi";
 import {AiOutlineUser} from "react-icons/ai";

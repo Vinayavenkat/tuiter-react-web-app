@@ -1,5 +1,4 @@
 import axios from "axios";
-const SERVER_API_URL = "http://localhost:4000/api";
 const USERS_URL = "http://localhost:4000/api/users";
 
 
