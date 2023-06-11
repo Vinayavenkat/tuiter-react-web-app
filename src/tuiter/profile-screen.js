@@ -5,11 +5,15 @@ import { profileThunk, logoutThunk, updateUserThunk } from "./services/auth-thun
 
 function ProfileScreen() {
   const { currentUser } = useSelector((state) => state.user);
-  const [profile, setProfile] = useState(currentUser);
+  const [profile, setProfile] = useState({
+    firstName: "",
+    lastName: "",
+  });
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const save = () => {
+    console.log(profile);
     dispatch(updateUserThunk(profile));
   };
 
@@ -21,6 +25,8 @@ function ProfileScreen() {
 
     fetchProfile();
   }, [dispatch]);
+
+  console.log("profile1", profile);
 
   return (
     <div>
@@ -39,6 +45,11 @@ function ProfileScreen() {
                 };
                 setProfile(newProfile);
               }}
+              style={{
+                padding: "5px",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
+              }}
             />
           </div>
           <div>
@@ -52,6 +63,12 @@ function ProfileScreen() {
                   lastName: event.target.value,
                 };
                 setProfile(newProfile);
+                console.log(newProfile);
+              }}
+              style={{
+                padding: "5px",
+                border: "1px solid #ccc",
+                borderRadius: "4px",
               }}
             />
           </div>
@@ -62,10 +79,29 @@ function ProfileScreen() {
           dispatch(logoutThunk());
           navigate("/tuiter/login");
         }}
+        style={{
+          padding: "10px 20px",
+          backgroundColor: "#f44336",
+          color: "#fff",
+          border: "none",
+          borderRadius: "4px",
+          marginRight: "10px",
+        }}
       >
         Logout
       </button>
-      <button onClick={save}>Save</button>
+      <button
+        onClick={save}
+        style={{
+          padding: "10px 20px",
+          backgroundColor: "#4caf50",
+          color: "#fff",
+          border: "none",
+          borderRadius: "4px",
+        }}
+      >
+        Save
+      </button>
     </div>
   );
 }
