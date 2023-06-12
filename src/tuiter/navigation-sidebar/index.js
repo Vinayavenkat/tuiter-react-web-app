@@ -4,8 +4,8 @@ import { Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHome, faCompass, faBell, faEnvelope, faBookmark, faList, faEllipsisH } from "@fortawesome/free-solid-svg-icons";
 import { BiLogIn } from "react-icons/bi";
-import {FiUserPlus} from "react-icons/fi";
-import {AiOutlineUser} from "react-icons/ai";
+import { FiUserPlus } from "react-icons/fi";
+import { AiOutlineUser } from "react-icons/ai";
 
 const NavigationSidebar = () => {
   const { pathname } = useLocation();
@@ -29,7 +29,7 @@ const NavigationSidebar = () => {
       className={`list-group-item text-capitalize ${active === link.path ? "active" : ""}`}
     >
       <FontAwesomeIcon icon={link.icon} className="me-2" />
-      {link.label}
+      <span className="d-none d-xl-inline">{link.label}</span>
     </Link>
   ));
 
@@ -37,17 +37,23 @@ const NavigationSidebar = () => {
     <div className="list-group">
       {linkItems}
       {!currentUser && (
-        <Link className="list-group-item" to="/tuiter/login">
-          <BiLogIn className="me-2" />
-          Login
+        <>
+          <Link className="list-group-item" to="/tuiter/login">
+            <BiLogIn className="me-2" />
+            <span className="d-none d-xl-inline">Login</span>
+          </Link>
+          <Link className="list-group-item" to="/tuiter/register">
+            <FiUserPlus className="me-2" />
+            <span className="d-none d-xl-inline">Register</span>
+          </Link>
+        </>
+      )}
+      {currentUser && (
+        <Link className="list-group-item" to="/tuiter/profile">
+          <AiOutlineUser className="me-2" />
+          <span className="d-none d-xl-inline">Profile</span>
         </Link>
       )}
-      {!currentUser && (<Link className="list-group-item" to="/tuiter/register">
-        <FiUserPlus className ="me-2"/>
-        Register</Link>)}
-
-      {currentUser && (<Link className="list-group-item" to="/tuiter/profile">
-        <AiOutlineUser className = "me-2"/>Profile</Link>)}
       <p className="text-white fs-6">{ignore}</p>
       <p className="text-white fs-6">{tuiter}</p>
     </div>
