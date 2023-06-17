@@ -1,5 +1,5 @@
 import axios from "axios";
-const USERS_URL = "https://tuiter-node-server-app-xs58.onrender.com/api/users";
+const USERS_URL = "https://tuiter-node-server-app-mongo-6i0j.onrender.com/api/users";
 
 
 
